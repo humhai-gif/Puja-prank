@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Durga Puja Dress Surprise</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#fff7ed,#ffe4e6);
+  font-family:Arial,sans-serif;
+  color:#35120b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.card{
+  width:min(94%,520px);
+  background:white;
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 15px 50px #7c2d1225;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#fff0d9;
+  color:#9a3412;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+h1{
+  font-size:30px;
+  margin:18px 0 8px;
+}
+
+.subtitle{
+  color:#6b4b45;
+  line-height:1.6;
+}
+
+form{
+  text-align:left;
+  margin-top:22px;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin:14px 0 7px;
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  border:1px solid #e7cfc7;
+  border-radius:10px;
+  font-size:15px;
+}
+
+button{
+  width:100%;
+  margin-top:22px;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  background:#b91c1c;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#loading,#result{
+  display:none;
+}
+
+.loader{
+  width:48px;
+  height:48px;
+  border:5px solid #f3d5d0;
+  border-top-color:#b91c1c;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:25px auto;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+#result h2{
+  font-size:48px;
+  margin:15px 0;
+  color:#b91c1c;
+}
+
+.note{
+  font-size:14px;
+  color:#6b4b45;
+  line-height:1.6;
+}
+
+.confetti{
+  font-size:35px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MAIN FORM -->
+<div class="card" id="main">
+
+  <div class="badge">
+    শারদীয়া বিশেষ অফার 🎉
+  </div>
+
+  <h1>Durga Puja New Dress Surprise</h1>
+
+  <p class="subtitle">
+    আপনার জন্য একটি Puja surprise dress অপেক্ষা করছে! ❤️<br>
+    নিচের ছোট্ট form-টি পূরণ করে claim করুন।
+  </p>
+
+  <form id="dressForm">
+
+    <label for="name">আপনার নাম</label>
+
+    <input
+      id="name"
+      type="text"
+      placeholder="নাম লিখুন"
+      required
+    >
+
+    <label for="dress">Dress পছন্দ</label>
+
+    <select id="dress" required>
+      <option value="">একটি বেছে নিন</option>
+      <option>Kurti</option>
+      <option>Punjabi</option>
+      <option>শাড়ি</option>
+      <option>Festive Shirt</option>
+    </select>
+
+    <button type="submit">
+      🎁 Claim My Puja Dress
+    </button>
+
+  </form>
+
+  <p class="note">
+    এটি একটি harmless prank।
+    কোনো payment, OTP, password বা sensitive information নেওয়া হয় না।
+  </p>
+
+</div>
+
+
+<!-- LOADING SCREEN -->
+<div class="card" id="loading">
+
+  <div class="badge">
+    SURPRISE PROCESSING...
+  </div>
+
+  <h1>
+    আপনার Puja surprise তৈরি হচ্ছে...
+  </h1>
+
+  <div class="loader"></div>
+
+  <p id="status">
+    Dress selection যাচাই করা হচ্ছে...
+  </p>
+
+</div>
+
+
+<!-- PRANK RESULT -->
+<div class="card" id="result">
+
+  <div class="confetti">
+    🎊 🥳 🎊
+  </div>
+
+  <div class="badge">
+    PUJA SURPRISE COMPLETE
+  </div>
+
+  <h2>
+    GOTCHA! 😂
+  </h2>
+
+  <p class="subtitle">
+    কোনো নতুন dress নেই! 😜<br>
+    এটা শুধু তোমার বন্ধুর জন্য একটা Durga Puja prank।
+  </p>
+
+  <p class="note">
+    তোমার কোনো personal data কোথাও পাঠানো বা সংরক্ষণ করা হয়নি।
+  </p>
+
+  <button onclick="location.reload()">
+    আবার Prank করো 😈
+  </button>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("dressForm");
+
+const main = document.getElementById("main");
+
+const loading = document.getElementById("loading");
+
+const result = document.getElementById("result");
+
+const status = document.getElementById("status");
+
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  main.style.display = "none";
+
+  loading.style.display = "block";
+
+
+  const messages = [
+
+    "Dress selection যাচাই করা হচ্ছে...",
+
+    "Puja surprise package তৈরি হচ্ছে...",
+
+    "Gift wrapping করা হচ্ছে...",
+
+    "শেষ ধাপ চলছে..."
+
+  ];
+
+
+  let i = 0;
+
+
+  const timer = setInterval(function(){
+
+    status.textContent = messages[i];
+
+    i++;
+
+
+    if(i >= messages.length){
+
+      clearInterval(timer);
+
+
+      setTimeout(function(){
+
+        loading.style.display = "none";
+
+        result.style.display = "block";
+
+      },800);
+
+    }
+
+  },900);
+
+});
+
+</script>
+
+</body>
+</html>
