@@ -1,0 +1,26 @@
+
+<audio id="maaDurgaSong" loop preload="auto">
+  <source src="maa-durga-song.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMaaDurgaSong()">
+  🔱 Play Maa Durga Song
+</button>
+
+<button onclick="pauseMaaDurgaSong()">
+  ⏸️ Pause Song
+</button>
+
+<script>
+  const maaDurgaSong = document.getElementById("maaDurgaSong");
+
+  function playMaaDurgaSong() {
+    maaDurgaSong.play().catch(() => {
+      alert("Please tap Play again to start the song.");
+    });
+  }
+
+  function pauseMaaDurgaSong() {
+    maaDurgaSong.pause();
+  }
+</script>
